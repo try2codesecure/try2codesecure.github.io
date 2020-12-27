@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cloudrocket</title>
-    <link>https://cloudrocket.at/</link>
+    <link>https://www.cloudrocket.at/</link>
     <description>Recent content on cloudrocket</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://cloudrocket.at/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.cloudrocket.at/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
