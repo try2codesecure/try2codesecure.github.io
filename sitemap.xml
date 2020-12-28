@@ -3,38 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.cloudrocket.at/tags/blog/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.cloudrocket.at/categories/blog/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.cloudrocket.at/categories/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.cloudrocket.at/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/tags/grafana/</loc>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/posts/monitor-openwrt-nodes-with-prometheus/</loc>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/tags/openwrt/</loc>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudrocket.at/posts/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/tags/prometheus/</loc>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudrocket.at/tags/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+    <lastmod>2020-12-28T21:40:49+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.cloudrocket.at/posts/my-first-post/</loc>
-    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+    <loc>https://www.cloudrocket.at/categories/</loc>
   </url>
   
 </urlset>
