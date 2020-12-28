@@ -3,15 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.cloudrocket.at/tags/blog/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/categories/blog/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.cloudrocket.at/categories/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudrocket.at/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/posts/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.cloudrocket.at/tags/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.cloudrocket.at/posts/my-first-post/</loc>
+    <lastmod>2020-12-24T12:29:56+01:00</lastmod>
   </url>
   
 </urlset>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on cloudrocket</title>
+    <link>https://www.cloudrocket.at/tags/blog/</link>
+    <description>Recent content in blog on cloudrocket</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Dec 2020 12:29:56 +0100</lastBuildDate><atom:link href="https://www.cloudrocket.at/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>the first post 👋</title>
+      <link>https://www.cloudrocket.at/posts/my-first-post/</link>
+      <pubDate>Thu, 24 Dec 2020 12:29:56 +0100</pubDate>
+      
+      <guid>https://www.cloudrocket.at/posts/my-first-post/</guid>
+      <description>👋 This is the first post with markdown testing
+Headers Header 3 Header 4 Header 6 Emojis 😀 start &amp;ldquo;❤️ing Hugo!&amp;rdquo;
+Links link to cloudrocket!
+Images without link with link 
+Items  Item 2  Item 2a Item 2b     Item 1 Item 2 Item 3  Item 3a Item 3b    Blockquotes  Sei gütig, denn alle Menschen, denen du begegnest, kämpfen einen schweren Kampf.</description>
+    </item>
+    
+  </channel>
+</rss>

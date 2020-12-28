@@ -5,6 +5,94 @@
     <link>https://www.cloudrocket.at/</link>
     <description>Recent content on cloudrocket</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www.cloudrocket.at/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Dec 2020 12:29:56 +0100</lastBuildDate><atom:link href="https://www.cloudrocket.at/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>the first post 👋</title>
+      <link>https://www.cloudrocket.at/posts/my-first-post/</link>
+      <pubDate>Thu, 24 Dec 2020 12:29:56 +0100</pubDate>
+      
+      <guid>https://www.cloudrocket.at/posts/my-first-post/</guid>
+      <description>&lt;p&gt;👋
+This is the first post with markdown testing&lt;/p&gt;
+&lt;h1 id=&#34;headers&#34;&gt;Headers&lt;/h1&gt;
+&lt;h3 id=&#34;header-3&#34;&gt;Header 3&lt;/h3&gt;
+&lt;h4 id=&#34;header-4&#34;&gt;Header 4&lt;/h4&gt;
+&lt;h6 id=&#34;header-6&#34;&gt;Header 6&lt;/h6&gt;
+&lt;h1 id=&#34;emojis&#34;&gt;Emojis&lt;/h1&gt;
+&lt;p&gt;😀
+start &amp;ldquo;❤️ing Hugo!&amp;rdquo;&lt;/p&gt;
+&lt;h1 id=&#34;links&#34;&gt;Links&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloudrocket.at&#34;&gt;link to cloudrocket!&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;images&#34;&gt;Images&lt;/h1&gt;
+&lt;p&gt;without link
+&lt;img src=&#34;https://www.cloudrocket.at/hello_world.jpeg&#34; alt=&#34;hello world&#34;&gt;
+with link
+&lt;a href=&#34;https://en.wikipedia.org/wiki/%22Hello,_World!%22_program&#34;&gt;&lt;img src=&#34;https://www.cloudrocket.at/hello_world.jpeg&#34; alt=&#34;hello world&#34; title=&#34;Hello World&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;items&#34;&gt;Items&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Item 2
+&lt;ul&gt;
+&lt;li&gt;Item 2a&lt;/li&gt;
+&lt;li&gt;Item 2b&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Item 1&lt;/li&gt;
+&lt;li&gt;Item 2&lt;/li&gt;
+&lt;li&gt;Item 3
+&lt;ol&gt;
+&lt;li&gt;Item 3a&lt;/li&gt;
+&lt;li&gt;Item 3b&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;blockquotes&#34;&gt;Blockquotes&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sei gütig, denn alle Menschen, denen du begegnest, kämpfen einen schweren Kampf.
+&amp;ldquo;Platon&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;inline-code&#34;&gt;Inline code&lt;/h1&gt;
+&lt;p&gt;I think you should use an
+&lt;code&gt;&amp;lt;addr&amp;gt;&lt;/code&gt; element here instead.&lt;/p&gt;
+&lt;h1 id=&#34;syntax-highlighting&#34;&gt;Syntax highlighting&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; fancyAlert&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;arg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;arg&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;
+    $.facebox&lt;span style=&#34;color:#f92672&#34;&gt;({&lt;/span&gt;div:&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;#foo&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;})&lt;/span&gt;
+  &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;task-lists&#34;&gt;Task Lists&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; start a blog&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; deploy the blog&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; @mentions, #refs, &lt;a href=&#34;&#34;&gt;links&lt;/a&gt;, &lt;strong&gt;formatting&lt;/strong&gt;, and &lt;!-- raw HTML omitted --&gt;tags&lt;!-- raw HTML omitted --&gt; supported&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; write some useful content&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;tables&#34;&gt;Tables&lt;/h1&gt;
+&lt;p&gt;You can create tables by assembling a list of words and dividing them with hyphens - (for the first row), and then separating each column with a pipe |:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Header&lt;/th&gt;
+&lt;th&gt;Second Header&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Content from cell 1&lt;/td&gt;
+&lt;td&gt;Content from cell 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content in the first column&lt;/td&gt;
+&lt;td&gt;Content in the second column&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;strikethrough&#34;&gt;Strikethrough&lt;/h1&gt;
+&lt;p&gt;I &lt;del&gt;do&amp;rsquo;nt&lt;/del&gt; like birds.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
