@@ -14,9 +14,9 @@
       
       <guid>https://www.cloudrocket.at/posts/self-hosted-mail-server-with-poste.io-and-nginx/</guid>
       <description>about poste.io is an fully featured self hosted email server which you can deploy in few minutes (nearly). There&amp;rsquo;s no magic rocket science in a black box, poste.io consists of bullet proof resilient parts
-setup To easily deploy the mail server follow the documentation on the getting-started page or use an docker-compose template.
-before you start check that the following DNS pre dependencies are met:
- A record for mail server - e.</description>
+basic setup To easily deploy the mail server follow the documentation on the getting-started page or use an docker-compose template.
+before you start check that the following DNS dependencies are met:
+ A &amp;amp; CNAME records for mail server - e.</description>
     </item>
     
   </channel>

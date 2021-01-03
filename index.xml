@@ -15,20 +15,23 @@
       <guid>https://www.cloudrocket.at/posts/self-hosted-mail-server-with-poste.io-and-nginx/</guid>
       <description>&lt;h1 id=&#34;about&#34;&gt;about&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://poste.io/&#34;&gt;poste.io&lt;/a&gt; is an fully featured self hosted email server which you can deploy in few minutes (nearly). There&amp;rsquo;s no magic rocket science in a black box, poste.io consists of bullet proof resilient &lt;a href=&#34;https://poste.io/doc/mailserver-parts&#34;&gt;parts&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;setup&#34;&gt;setup&lt;/h1&gt;
+&lt;h1 id=&#34;basic-setup&#34;&gt;basic setup&lt;/h1&gt;
 &lt;p&gt;To easily deploy the mail server follow the documentation on the &lt;a href=&#34;https://poste.io/doc/getting-started&#34;&gt;getting-started&lt;/a&gt; page or use an &lt;a href=&#34;https://gist.github.com/analogic/51fbe91b580d7913b72320f89bf994cc&#34;&gt;docker-compose&lt;/a&gt; template.&lt;/p&gt;
-&lt;h3 id=&#34;before-you-start&#34;&gt;before you start&lt;/h3&gt;
-&lt;p&gt;check that the following DNS pre dependencies are met:&lt;/p&gt;
+&lt;h2 id=&#34;before-you-start&#34;&gt;before you start&lt;/h2&gt;
+&lt;p&gt;check that the following &lt;a href=&#34;https://poste.io/doc/configuring-dns&#34;&gt;DNS dependencies&lt;/a&gt; are met:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; A record for mail server - e.g. &lt;code&gt;mail.yourdomain.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; A &amp;amp; CNAME records for mail server - e.g. &lt;code&gt;mail.yourdomain.com&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; MX record for mail server&lt;/li&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Sender_Policy_Framework&#34;&gt;TXT-SPF record for mail server&lt;/a&gt; - e.g. &lt;code&gt;v=spf1 mx ip4:YOUR_EXT_SERVER_IP -all&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Sender_Policy_Framework&#34;&gt;TXT-SPF record for mail server&lt;/a&gt; - e.g. &lt;code&gt;v=spf1 mx ip4:YOUR_EXT_SERVER_IP -all&lt;/code&gt;.
+You can test it with an &lt;a href=&#34;https://poste.io/spf&#34;&gt;SPF-Tester&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/DMARC&#34;&gt;TXT-DMARC record for mail server&lt;/a&gt; - e.g. &lt;code&gt;v=DMARC1; p=none; rua=mailto:admin@YOUR_DOMAIN.COM; ruf=mailto:admin@YOUR_DOMAIN.COM&lt;/code&gt;.
+You can test it with an &lt;a href=&#34;https://poste.io/dmarc&#34;&gt;DMARC-Tester&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;the-config&#34;&gt;the config&lt;/h3&gt;
+&lt;h2 id=&#34;the-config&#34;&gt;the config&lt;/h2&gt;
 &lt;p&gt;If you start with the &lt;a href=&#34;https://gist.github.com/analogic/51fbe91b580d7913b72320f89bf994cc&#34;&gt;gist-config&lt;/a&gt; maybe you stuck with the same problem like me.
 I&amp;rsquo;m using an &lt;a href=&#34;https://github.com/nginx-proxy/docker-letsencrypt-nginx-proxy-companion&#34;&gt;&amp;ldquo;frontend&amp;rdquo; nginx TLS proxy&lt;/a&gt; which handles the letsencrypt certificates in another docker container.
 So i set up poste.io with external docker bridges &lt;a href=&#34;https://poste.io/doc/network-schemes&#34;&gt;&lt;img src=&#34;https://www.cloudrocket.at/images/2021/poste_network.png&#34; alt=&#34;Poste networks&#34; title=&#34;Poste.io docker networks&#34;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;the-tls-termination-problem&#34;&gt;the tls termination &amp;ldquo;problem&amp;rdquo;&lt;/h3&gt;
+&lt;h2 id=&#34;the-tls-termination-problem&#34;&gt;the tls termination &amp;ldquo;problem&amp;rdquo;&lt;/h2&gt;
 &lt;p&gt;At the first try poste.io started up &amp;amp; the proxy container requests the new letsencrypt certs &amp;amp; the https login to the mailserver worked out of the box.
 The problem was that i forgot to link the certs from the proxy to the mail server. So the other TLS ports stucks with an default self signed cert.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://www.cloudrocket.at/images/2021/poste_ports.png&#34; alt=&#34;TLS ports&#34; title=&#34;Poste.io TLS without valid cert on first try&#34;&gt;&lt;/p&gt;
@@ -39,7 +42,7 @@ The problem was that i forgot to link the certs from the proxy to the mail serve
       - NGINX_PROXY_PATH/ssl/certs/mail.YOUR_DOMAIN.com/fullchain.pem:/data/ssl/ca.crt:ro
       - NGINX_PROXY_PATH/ssl/certs/mail.YOUR_DOMAIN.com/cert.pem:/data/ssl/server.crt:ro
 ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;the-final-config&#34;&gt;the final config&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;the-final-config&#34;&gt;the final config&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;version: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
 
 services:
@@ -77,7 +80,7 @@ networks:
     external:
       name: frontend_proxy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With this config the valid certs get linked from the nginx proxy to the mail server (which is pretty useful if you want to offer some TLS services).&lt;/p&gt;
-&lt;h3 id=&#34;do-some-testing&#34;&gt;do some testing&lt;/h3&gt;
+&lt;h2 id=&#34;do-some-testing&#34;&gt;do some testing&lt;/h2&gt;
 &lt;p&gt;If you now fire up the compose file, the TLS ports should be reached externaly with the valid TLS certs:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# do some testing&lt;/span&gt;
 HOST&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;mail.YOUR_DOMAIN.com
@@ -85,14 +88,22 @@ HOST&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;mail.YOUR_DOMAIN.com
 echo | openssl s_client -servername $HOST -connect $HOST:587 -starttls smtp 2&amp;gt;/dev/null | openssl x509 -noout -issuer -subject -dates
 &lt;span style=&#34;color:#75715e&#34;&gt;# test the SMTPS, IMAPS &amp;amp; POP3S ports&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; PORT in &lt;span style=&#34;color:#ae81ff&#34;&gt;465&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;993&lt;/span&gt; 995; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; echo | openssl s_client -servername $HOST -connect $HOST:$PORT 2&amp;gt;/dev/null | openssl x509 -noout -issuer -subject -dates; &lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;optinal-set-minimum-tls-12-for-clients&#34;&gt;(optinal) set minimum TLS 1.2 for clients&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;security-recommendations&#34;&gt;security recommendations&lt;/h1&gt;
+&lt;h2 id=&#34;optional-set-minimum-tls-12-for-clients&#34;&gt;(optional) set minimum TLS 1.2 for clients&lt;/h2&gt;
 &lt;p&gt;If you use only &lt;em&gt;modern&lt;/em&gt; clients you safely can force TLS 1.2 as minimum for clients&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;docker exec -it CONTAINER_NAME bash
 sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s#inbound_min_version\ =\ &amp;#34;&amp;#34;#inbound_min_version\ =\ TLSv1.2#g&amp;#39;&lt;/span&gt; /data/server.ini
 sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s#inbound_ciphers\ =\ &amp;#34;&amp;#34;#inbound_ciphers\ =\ ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384#g&amp;#39;&lt;/span&gt; /data/server.ini
 exit
 docker restart CONTAINER_NAME
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;enjoy&#34;&gt;enjoy&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;optional-configure-dkim-keys&#34;&gt;(optional) configure DKIM keys&lt;/h2&gt;
+&lt;p&gt;DKIM keys will increase security &amp;amp; avoid spamming. To enable DKIM keys got to &amp;ldquo;Virtual domains → your-domain.com&amp;rdquo; &amp;amp; click on create keys.
+This will auto generate your private keys and your DNS TXT public key entry which should look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;_sYEARMMDD000._domainkey.your-domain.com IN TXT &amp;quot;k=rsa;p=......
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://www.cloudrocket.at/images/2021/poste_dkim.png&#34; alt=&#34;DKIM&#34; title=&#34;configure DKIM keys&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Add an appropriate TXT entry to your DNS config &amp;amp; test it with an &lt;a href=&#34;https://poste.io/dkim?cloudrocket.at&amp;amp;s20210103707&#34;&gt;DKIM-Tester&lt;/a&gt;.
+You also can trigger an full test with test emails =&amp;gt; &lt;a href=&#34;https://www.appmaildev.com/de/dkim&#34;&gt;https://www.appmaildev.com/de/dkim&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;enjoy&#34;&gt;enjoy&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;https://media.giphy.com/media/yidUzHnBk32Um9aMMw/giphy.gif&#34; alt=&#34;soo amazing fast&#34; title=&#34;soo amazing fast&#34;&gt;&lt;/p&gt;
 </description>
     </item>
